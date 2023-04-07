@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <script>
+            function Clear(){
+                document.getElementById("display").value="";
+            }
+            function display(input){
+                document.getElementById("display").value+=input;
+            }
+            function del(){
+                k=document.getElementById("display").value;
+                p="";
+                for(i=0;i<k.length-1;++i)
+                {
+                    p+=k[i];
+                }
+
+                document.getElementById("display").value=p;
+               
+            }
+            function compute()
+            {
+                try{
+                    document.getElementById("display").value=eval(document.getElementById("display").value);
+                }
+                catch{
+                    document.getElementById("display").value="Syntax Error";
+                }
+            
+            }
+        </script>
+   
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+           align-items:center;
+           min-height: 100vh;
+           background-color:#edf1f4;
+        }
+.calculator
+{   position:relative;
+    width:340 px;
+    padding:20 px;
+    border-radius:20px;
+    box-shadow:15px 15px 20px  rgba(0,0,0.1,0.1),
+    -15px -15px 20px #fffb;
+}
+.buttons  {
+    text-align: center;
+display:grid;
+grid-template-columns:80px 80px 80px  80px;
+position :relative;
+padding-left: 20px;
+padding-top: 20px;
+padding-right:20px;
+padding-bottom:20px;
+
+}
+ #display{text-align:end;
+    color: blue;
+    border-color: transparent;
+    font-size:20px;
+    grid-column:span 4;
+    line-height:100px;
+    box-shadow:inset 5px 5px 10px rgba(0,0,0,0.1),
+    inset -5px -5px 10px #fffb;
+    border-radius:10px;
+    margin-bottom:12px;
+    padding:0 20px;
+}
+#clear
+{background-color: rgb(243, 52, 74);
+    grid-column:span 2;
+    color:white;
+}
+
+#del
+{
+    background-color: black;
+    color:white;
+}
+
+#equal
+{
+    background-color: rgb(55, 186, 55);
+    color:white;
+}
+button{
+    font-size: 20px;
+    position:relative;
+    padding:10px;
+    box-shadow: 5px 5px 10px rgba(39, 116, 164, 0.1),
+     -5px -5px 10px rgb(54, 142, 177);
+    margin:10px;
+    cursor:pointer;
+    user-select: none;
+    border-radius:5px;
+    border-color:transparent;
+}
+button:hover ,#clear:hover,#del:hover {
+    background-color:grey;
+}
+button:active,#clear:active,#del:active{
+    background-color: green;
+}
+    </style>
+    </head>
+    <body>
+        <div class="calculator" >
+       
+           <div class="buttons" style="background-color: skyblue; border-radius:10px">
+           
+            <input type="text"  id="display">
+              <button  onclick="Clear()" id="clear">Clear</button>
+              <button id="Del" onclick="del()">Del</button>
+              <button onclick="display('/')">/</button>
+               <button onclick="display('7')">7</button>
+                <button onclick="display('8')">8</button>
+                 <button onclick="display('9')" >9
+                 </button>
+                  <button onclick="display('*')" >*</button>
+                   <button onclick="display('4')">4</button>
+                   <button onclick="display('5')">5</button>
+                   <button onclick="display('6')">6</button>
+                   <button onclick="display('+')" id="plus">+</button>
+                  
+                   <button onclick="display('1')">1</button>
+                   <button  onclick="display('2')">2</button>
+                   <button onclick="display('3')">3</button>
+                   <button onclick="display('-')" >-</button>
+                   
+                   <button onclick="display('0')">0</button>
+                   <button onclick="display('00')">00</button>
+                   <button onclick="display('.')">.</button>
+                   <button onclick="compute()" id="equal">=</button>
+            
+
+
+           </div>
+          
+       </div>
+       
+    </body>
+</html>
